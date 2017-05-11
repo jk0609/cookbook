@@ -1,0 +1,20 @@
+<h1><%= @recipe.name() %></h1>
+
+<h3>Instructions</h3>
+<p><%= @recipe.instructions %></p>
+
+<h3>Ingredients</h3>
+<ul>
+<% @recipe.ingredients.each() do |ingredient| %>
+<li><%= ingredient.name() %></li>
+<% end %>
+</ul>
+
+<h3>Categories</h3>
+<ul>
+  <% @recipe.tags.each() do |tag| %>
+  <li><a href='/tags/<%= tag.id() %>'><%= tag.name() %></a></li>
+  <% end %>
+</ul>
+
+<a href="/recipes/<%= @recipe.id %>/edit" class='btn btn-info'>Edit Recipe</a>

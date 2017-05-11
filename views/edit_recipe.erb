@@ -1,0 +1,43 @@
+<h1>Edit Recipe</h1>
+<form action="/recipes/<%=@recipe.id%>/edit" method="post">
+  <input type="hidden" name="r_id" value="<%=@recipe.id%>">
+  <div class="form-group">
+    <label for="r_name">Name</label>
+    <input type="text" name="r_name" value="<%=@r_name%>">
+  </div>
+  <div class="form-group">
+    <label for="instructions">Write Instructions</label>
+    <input type="text" name="instructions" value="<%=@instructions%>">
+  </div>
+  <div class="form-group">
+    <label for="rating">Rate Your Recipe</label>
+    <input type="number" name="rating" value="<%=@rating%>">
+  </div>
+  <h3>Add Ingredients</h3>
+  <div class="form-group">
+    <% @recipe.ingredients.each do |ingredient| %>
+    <input type='checkbox' name='ingredient_ids[]' value='<%= ingredient.id %>'><%= ingredient.name %>
+    <% end %>
+  </div>
+  <button type="submit" name="button" value='3'>Remove Ingredients</button>    
+  <div class="form-group">
+    <label for="i_name">Ingredient</label>
+    <input type="text" name="i_name">
+  </div>
+  <div class="form-group">
+    <label for="amount">Amount</label>
+    <input type="text" name="amount">
+  </div>
+  <button type="submit" name="button" value='1'>Add Ingredient</button>
+  <h3>Select Categories</h3>
+  <div class="form-group">
+    <% @tags.each do |tag| %>
+      <%if @checked_tags.include?(tag.id) %>
+        <input type='checkbox' name='tag_ids[]' value='<%= tag.id %>' checked> <%= tag.name %><br>
+      <% else %>
+        <input type='checkbox' name='tag_ids[]' value='<%= tag.id %>'> <%= tag.name %><br>
+      <% end %>
+    <% end %>
+  </div>
+  <button type="submit" name="button" value='2'>Finish Recipe</button>
+</form>

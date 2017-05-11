@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <title>Cookbook</title>
+  </head>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/recipes/new">Add a New Recipe</a></li>
+        <li><a href="/tags">Categories</a></li>
+      </ul>
+    </div>
+  </nav>
+  <body>
+    <div class='container'>
+      <%= yield %>
+    </div>
+  </body>
+</html>
